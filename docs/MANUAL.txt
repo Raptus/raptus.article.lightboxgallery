@@ -10,6 +10,7 @@ Code overview
 
 Components
 ----------
-plone.abovecontentbody:
 
+plone.abovecontentbody
+``````````````````````
 - raptus.article.lightboxgallery

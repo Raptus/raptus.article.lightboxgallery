@@ -5,11 +5,12 @@ Provides an inline lightbox component with a horizontal gallery showing the imag
 
 The following features for raptus.article are provided by this package:
 
-    * Components:
-      * Lightbox with gallery (Lightbox of the images contained in the article including a horizontal gallery)
+Components
+------------
+    * Lightbox with gallery (Lightbox of the images contained in the article including a horizontal gallery)
 
-Dependencies:
-
+Dependencies
+------------
     * raptus.article.images
     * raptus.inlinelightbox
     * raptus.carousel
@@ -58,7 +59,5 @@ in the article in which this component is active.
 Copyright and credits
 =====================
 
-raptus.article is copyrighted by raptus_, and licensed under the GPL. 
+raptus.article is copyrighted by `Raptus AG <http://raptus.com>`_ and licensed under the GPL. 
 See LICENSE.txt for details.
-
-.. _raptus: http://raptus.com/ 
