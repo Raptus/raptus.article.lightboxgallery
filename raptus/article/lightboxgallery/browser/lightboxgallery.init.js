@@ -8,6 +8,6 @@ jQuery(document).ready(function() {
       images.push(rel);
   });
   for(var i=0; i<images.length; i++) {
-    jQuery('a[rel='+images[i]+']').inlineLightBox(settings);
+    jQuery('a[rel="'+images[i]+'"]').inlineLightBox(settings);
   }
 });
