@@ -8,7 +8,8 @@
   <div class="componentBlock carousel">
     <ul class="visualNoMarker comonent carouselContent manageableList">
       <tal:item repeat="item view/images">
-      <li tal:condition="item/img">
+      <li tal:condition="item/img"
+          tal:attributes="class item/class">
         <metal:manage use-macro="context/raptus_article_macros/macros/manage" /> 
         <a href="" rel="inlinelightbox"
            tal:attributes="href item/url;

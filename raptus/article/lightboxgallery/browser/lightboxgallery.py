@@ -4,12 +4,14 @@ from zope import interface, component
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
 from plone.memoize.instance import memoize
+from Products.CMFCore.utils import getToolByName
 
 try: # Plone 4 and higher
     from Products.ATContentTypes.interfaces.image import IATImage
 except: # BBB Plone 3
     from Products.ATContentTypes.interface.image import IATImage
 
+from raptus.article.core.config import MANAGE_PERMISSION
 from raptus.article.core import RaptusArticleMessageFactory as _
 from raptus.article.core import interfaces
 from raptus.article.images.interfaces import IImages, IImage
@@ -47,10 +49,16 @@ class Viewlet(ViewletBase):
     def images(self):
         provider = IImages(self.context)
         manageable = interfaces.IManageable(self.context)
-        items = manageable.getList(provider.getImages(component=self.component), self.component)
+        mship = getToolByName(self.context, 'portal_membership')
+        if mship.checkPermission(MANAGE_PERMISSION, self.context):
+            items = provider.getImages()
+        else:
+            items = provider.getImages(component=self.component)
+        items = manageable.getList(items, self.component)
         for item in items:
             img = IImage(item['obj'])
             item.update({'caption': img.getCaption(),
                          'img': img.getImage(self.thumb_size),
-                         'url': img.getImageURL(self.img_size)})
+                         'url': img.getImageURL(self.img_size),
+                         'class': item.has_key('show') and item['show'] and 'hidden' or ''})
         return items
