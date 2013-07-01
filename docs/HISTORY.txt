@@ -1,6 +1,14 @@
 Changelog
 =========
 
+2.0b8 (unreleased)
+------------------
+
+* Adjusted javascript initialization to work with the new component selection functionality
+  introduced in raptus.article.core 2.0b13
+* Fixed template to no longer render an html tag
+* Only show hidden images when in editing mode (introduced in raptus.article.core 2.0b13)
+
 2.0b7 (2011-05-23)
 ------------------
 
